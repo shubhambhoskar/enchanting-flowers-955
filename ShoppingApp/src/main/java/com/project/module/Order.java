@@ -1,9 +1,8 @@
 package com.project.module;
 
 import java.time.LocalDate;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
@@ -15,48 +14,52 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.NotNull;
 
-import org.hibernate.annotations.ManyToAny;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.project.Dto.AddressDto;
+import com.project.Dto.ProductDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Order {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer orderId;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
-	private LocalDate orderDate;
-	private String OrderStatus;
 	
-	// Dependency of Customer (Check at the run time)
-	// Add the relationship
+	private LocalDate orderDate;
+	
+	private String OrderStatus;
+
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinTable(name = "Customer_order",joinColumns = @JoinColumn(name = "orderId"))
+	@JoinTable(name = "customer_order",joinColumns = @JoinColumn(name = "order_Id",referencedColumnName = "orderId"))
 	private Customer customer;
 	
 	@ElementCollection
-	@CollectionTable(name="product_order",joinColumns = @JoinColumn(name = "orderId"))
-	private List<Product> product;
-	
-//	@ElementCollection
-//	@Embedded
-//	private Address address;
-	@ElementCollection
+	@CollectionTable(name="order_productList",joinColumns = @JoinColumn(name = "order_Id",referencedColumnName = "orderId"))
+	private List<ProductDto> productList = new ArrayList<>();
+
 	@Embedded
-	private Set<Address> addresses=new HashSet<Address>();
+	private AddressDto orderAddress;
+
+	public Order(LocalDate orderDate, String orderStatus, Customer customer, List<ProductDto> productList,
+			AddressDto orderAddress) {
+		super();
+		this.orderDate = orderDate;
+		OrderStatus = orderStatus;
+		this.customer = customer;
+		this.productList = productList;
+		this.orderAddress = orderAddress;
+	}
+
+	
+	
+	
+	
 }
