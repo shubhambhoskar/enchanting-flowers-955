@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ import lombok.ToString;
 public class Customer {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer customerId;
 	private String firstName;
 	private String LastName;
@@ -36,36 +37,28 @@ public class Customer {
 	
 	private String email;
 	
-	@ElementCollection
 	@Embedded
-	@JoinTable(name = "Addresses", joinColumns = @JoinColumn(name="adrress"))
-	private Set<Address> addresses=new HashSet<Address>();
-	
-	
-	
-	
+	@ElementCollection(fetch = FetchType.EAGER)
+	//@JoinTable(name = "Addresses", joinColumns = @JoinColumn(name="adrress"))
+	private Address address;
+//	private /* Set<Address> address=new HashSet<>(); */
 	
 	
 
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", firstName=" + firstName + ", LastName=" + LastName
-				+ ", mobileNumber=" + mobileNumber + ", email=" + email + ", addresses=" + addresses + "]";
-	}
-
-	public Customer() {
-		super();
-	}
 
 	public Customer(Integer customerId, String firstName, String lastName, String mobileNumber, String email,
-			Set<Address> addresses) {
+			Address address) {
 		super();
 		this.customerId = customerId;
 		this.firstName = firstName;
 		LastName = lastName;
 		this.mobileNumber = mobileNumber;
 		this.email = email;
-		this.addresses = addresses;
+		this.address = address;
+	}
+
+	public Customer() {
+		super();
 	}
 
 	public Integer getCustomerId() {
@@ -107,14 +100,25 @@ public class Customer {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
+	
 
-	public Set<Address> getAddresses() {
-		return addresses;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAddresses(Set<Address> addresses) {
-		this.addresses = addresses;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", firstName=" + firstName + ", LastName=" + LastName
+				+ ", mobileNumber=" + mobileNumber + ", email=" + email + ", address=" + address + "]";
+	}
+
+
 	
 	
 	

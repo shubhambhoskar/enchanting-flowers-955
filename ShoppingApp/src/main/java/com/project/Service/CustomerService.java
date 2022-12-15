@@ -9,11 +9,11 @@ public interface CustomerService {
 	
 	public Customer addCustomer(Customer cust)throws ProductException;
 	
-	public Customer UpdateCustomer(Customer cust)throws ProductException;
+	public Customer updateCustomer(Customer cust)throws ProductException;
 	
-	public Customer removeCustomer(Customer cust)throws ProductException;
+	public Customer removeCustomer(Integer cid)throws ProductException;
 	
-	public Customer viewCustomer(Customer cust)throws ProductException;
+	public Customer viewCustomer(Integer cid)throws ProductException;
 	
-	public List<Customer> viewAllCustomer(Customer cust)throws ProductException;
+	public List<Customer> viewAllCustomer()throws ProductException;
 }
