@@ -5,10 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+//@Entity
 public class Category {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String catId;
 	private String categoryName;
 	

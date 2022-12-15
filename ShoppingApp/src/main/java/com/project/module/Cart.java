@@ -8,14 +8,14 @@ import javax.persistence.OneToOne;
 
 public class Cart {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer cartId;
 	
 	//Add the relationship accordingly
-	@OneToOne
+	//@OneToOne
 	private Customer customer;
 	
-	@OneToMany
+	//@OneToMany
 	private Product product;
 }

@@ -6,11 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-@Entity
+//@Entity
 public class Product {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String productId;
 	private String productName;
 	private double price;
@@ -20,7 +20,7 @@ public class Product {
 	private int quantity;
 	
 	//Add the dependency of Category
-	@OneToMany
+	//@OneToMany
 	private Category category;  // One to many
 	
 	
