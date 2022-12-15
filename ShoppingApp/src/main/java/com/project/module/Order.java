@@ -11,11 +11,11 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.ManyToAny;
 
-@Entity
+//@Entity
 public class Order {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer orderId;
 	private LocalDate orderDate;
 	private String OrderStatus;
