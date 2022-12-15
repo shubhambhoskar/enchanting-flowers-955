@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.project.module.Customer;
 @Repository
 public interface CustomerDao extends JpaRepository<Customer, Integer>{
-
+	
 }

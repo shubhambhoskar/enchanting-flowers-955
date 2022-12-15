@@ -21,9 +21,11 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	@Override
 	public Customer addCustomer(Customer cust) throws ProductException {
-		
+		System.out.println("Akashyadav====================================2222222222222222222222222");
+		System.out.println(cust.getAddress().isEmpty());
 		Customer cst = cDao.save(cust);
 		if(cst!=null) {
+			
 			return cst;
 		}else {
 			throw new ProductException("Invalid customer details..");

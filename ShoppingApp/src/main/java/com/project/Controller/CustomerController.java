@@ -29,6 +29,7 @@ public class CustomerController {
 	
 	@PostMapping("/addCustomer")
 	public ResponseEntity<Customer> addCustomerHandler(@RequestBody Customer cust) throws ProductException {
+		System.out.println("Akashyadav================================1111111111");
 		Customer c = null;
 		try {
 			c = cService.addCustomer(cust);
