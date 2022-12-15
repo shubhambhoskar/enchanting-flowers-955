@@ -7,4 +7,5 @@ import com.project.module.User;
 @Repository
 public interface UserDao  extends JpaRepository<User, Integer>{
 
+	//public User findByUsername(String username);
 }

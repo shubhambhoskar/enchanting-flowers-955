@@ -19,6 +19,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer userId;
+	private String Username;
 	private String password;
 	private String role;
 	
@@ -26,12 +27,29 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(Integer userId, String password, String role) {
+	
+
+	public User(Integer userId, String username, String password, String role) {
 		super();
 		this.userId = userId;
+		Username = username;
 		this.password = password;
 		this.role = role;
 	}
+
+
+
+	public String getUsername() {
+		return Username;
+	}
+
+
+
+	public void setUsername(String username) {
+		Username = username;
+	}
+
+
 
 	public Integer getUserId() {
 		return userId;
