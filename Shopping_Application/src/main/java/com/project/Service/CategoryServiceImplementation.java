@@ -1,6 +1,5 @@
 package com.project.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +10,8 @@ import com.project.Dao.CurrentUserSessionDao;
 import com.project.Exceptions.AdminException;
 import com.project.Exceptions.CategoryException;
 import com.project.Exceptions.LoginException;
-import com.project.module.Admin;
 import com.project.module.Category;
 import com.project.module.CurrentUserSession;
-import com.project.module.Product;
 
 @Service
 public class CategoryServiceImplementation implements CategoryService{
