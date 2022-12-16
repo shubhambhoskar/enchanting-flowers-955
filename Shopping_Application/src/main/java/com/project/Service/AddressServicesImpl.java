@@ -1,5 +1,7 @@
 package com.project.Service;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,6 @@ import com.project.module.Customer;
 public class AddressServicesImpl implements AddressServices{
 	@Autowired
 	private AddressDao addressDao;
-
 
 	@Autowired
 	private CurrentUserSessionDao csdao;
@@ -48,6 +49,83 @@ public class AddressServicesImpl implements AddressServices{
 		customer.getAddress().add(address);
 
 		return addressDao.save(address);
+	}
+
+	@Override
+	public Address updateAddress(Address address, Integer AddressId, String key)throws AddressException, CustomerException, LoginException {
+		CurrentUserSession loggedInCustomer = csdao.findByUuid(key);
+
+		if (loggedInCustomer == null) {
+			throw new LoginException("Invalid Key Entered");
+		}
+
+		Optional<Address> existingAddress = addressDao.findById(AddressId);
+
+		if (existingAddress.isPresent() == false)
+			throw new AddressException("No Address found!");
+
+		Address res = existingAddress.get();
+
+		return addressDao.save(address);
+	}
+
+	@Override
+	public Address deleteAddress(Integer AddressId, String key)throws AddressException, CustomerException, LoginException {
+		CurrentUserSession loggedInCustomer = csdao.findByUuid(key);
+
+		if (loggedInCustomer == null) {
+			throw new LoginException("Invalid Key Entered");
+		}
+
+		Optional<Address> existingAddress = addressDao.findById(AddressId);
+
+		if (existingAddress.isPresent() == false)
+			throw new AddressException("No Address found!");
+		
+		Address adr = existingAddress.get();
+		
+		Customer customer = customerService.findByCustomerLoginId(loggedInCustomer.getUserId());
+		
+		Set<Address> res = customer.getAddress();
+		
+		res.remove(adr);
+
+		addressDao.deleteById(AddressId);
+
+		return adr;
+	}
+
+	@Override
+	public Address viewAddress(Integer AddressId, String key) throws AddressException, CustomerException {
+		
+		CurrentUserSession loggedInCustomer = csdao.findByUuid(key);
+
+		if (loggedInCustomer == null) {
+			throw new CustomerException("Customer not logged in");
+		}
+
+		Optional<Address> existingAddress = addressDao.findById(AddressId);
+
+		if (existingAddress.isPresent() == false)
+			throw new AddressException("No address found!");
+
+		return existingAddress.get();
+	}
+
+	@Override
+	public List<Address> viewAllAddress(String key) throws AddressException, CustomerException {
+		CurrentUserSession loggedInCustomer = csdao.findByUuid(key);
+		
+		if (loggedInCustomer == null) {
+			throw new CustomerException("Customer not logged in");
+		}
+
+		List<Address> address = addressDao.findAll();
+
+		if (address.isEmpty())
+			throw new AddressException("No address found!");
+
+		return address;
 	}
 
 }
