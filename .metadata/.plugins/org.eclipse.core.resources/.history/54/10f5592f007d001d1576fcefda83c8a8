@@ -1,0 +1,54 @@
+package com.project.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.project.Dao.AdminDao;
+import com.project.Exceptions.AdminException;
+import com.project.Exceptions.LoginException;
+import com.project.module.Admin;
+@Service
+public class AdminServiceImpl implements AdminService{
+	@Autowired
+	private AdminDao adminDao;
+
+	@Override
+	public Admin saveUser(Admin user) throws AdminException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Admin updateUser(Admin user, String key) throws AdminException, LoginException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Admin deleteUser(String adminUsername) throws AdminException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Admin findByAdminId(Integer adminId) throws AdminException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Admin findByUserName(String adminUserName) throws AdminException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Admin> findAllUsers() throws AdminException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

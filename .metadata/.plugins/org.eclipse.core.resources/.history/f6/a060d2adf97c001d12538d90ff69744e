@@ -1,0 +1,5 @@
+package com.project.Dao;
+
+public class AdminDao {
+
+}
