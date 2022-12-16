@@ -16,4 +16,6 @@ public interface CustomerService {
 	public Customer findByUserName(String userName) throws CustomerException;
 	
 	public List<Customer> findAllCustomer() throws CustomerException;
+	
+	public Customer findByCustomerLoginId(Integer CustomerLoginId) throws CustomerException;
 }
