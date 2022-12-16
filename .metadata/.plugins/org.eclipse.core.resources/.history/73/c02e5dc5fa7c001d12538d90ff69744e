@@ -1,0 +1,19 @@
+package com.project.Service;
+
+import java.util.List;
+
+import com.project.module.Admin;
+
+public interface AdminService {
+	public Admin saveUser(Admin user);
+
+	public Admin updateUser(Admin user, String key);
+
+	public Admin deleteUser(String adminUsername);
+
+	public Admin findByAdminId(Integer adminId);
+
+	public Admin findByUserName(String adminUserName);
+
+	public List<Admin> findAllUsers();
+}
