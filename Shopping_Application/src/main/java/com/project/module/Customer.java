@@ -49,16 +49,6 @@ public class Customer {
 	@NotNull(message = "MobileNumber cannot be null")
 	@NotBlank(message = "MobileNumber cannot be blank...!")
 
-	
-	@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",message = "{user.invalid.password}")
-	private String password;
-
-	@Size(min = 2, max = 20, message = "{user.invalid.firstName}")
-	private String firstName;
-
-	@Size(min = 2, max = 20, message = "{user.invalid.lastName}")
-	private String lastName;
-
 	@Pattern(regexp = "^[0-9]{10}", message = "{user.invalid.contact}")
 
 	private String MobileNumber;

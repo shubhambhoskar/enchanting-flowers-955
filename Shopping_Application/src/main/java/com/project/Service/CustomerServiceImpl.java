@@ -37,7 +37,7 @@ public class CustomerServiceImpl implements CustomerService{
 			throw new CustomerException("Please provide a valid key to update a customer");
 		}
 		
-		if (customer.getUserLoginId() == loggedInUser.getUserId()) {
+		if (customer.getCustomerLoginId() == loggedInUser.getUserId()) {
 			return customerDao.save(customer);
 		} else
 			throw new LoginException("Invalid customer Details, please login first");
