@@ -1,6 +1,7 @@
 package com.project.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -16,6 +17,7 @@ import com.project.module.Customer;
 
 import net.bytebuddy.utility.RandomString;
 
+@Service
 public class LoginServiceImpl implements LoginService{
 
 
