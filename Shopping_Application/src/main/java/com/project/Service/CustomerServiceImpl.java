@@ -1,6 +1,7 @@
 package com.project.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -73,6 +74,16 @@ public class CustomerServiceImpl implements CustomerService{
 			throw new CustomerException("No Users Found");
 
 		return customers;
+	}
+
+	@Override
+	public Customer findByCustomerLoginId(Integer CustomerLoginId) throws CustomerException {
+		Optional<Customer> existingCustomer = customerDao.findById(CustomerLoginId);
+
+		if (existingCustomer.isPresent())
+			return existingCustomer.get();
+		else
+			throw new CustomerException("Customer does not exists with this CustomerLoginId " + CustomerLoginId);
 	}
 
 }
