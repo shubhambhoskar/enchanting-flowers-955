@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 
 import javax.validation.constraints.NotBlank;
@@ -60,4 +61,8 @@ public class Customer {
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Address> Address;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Cart cart;
 }

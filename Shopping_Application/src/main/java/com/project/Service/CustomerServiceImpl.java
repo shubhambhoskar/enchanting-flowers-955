@@ -1,17 +1,21 @@
 package com.project.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.Dao.CartDao;
 import com.project.Dao.CurrentUserSessionDao;
 import com.project.Dao.CustomerDao;
 import com.project.Exceptions.CustomerException;
 import com.project.Exceptions.LoginException;
+import com.project.module.Cart;
 import com.project.module.CurrentUserSession;
 import com.project.module.Customer;
+import com.project.module.Product;
 
 @Service
 public class CustomerServiceImpl implements CustomerService{
@@ -20,12 +24,22 @@ public class CustomerServiceImpl implements CustomerService{
 
 	@Autowired
 	private CurrentUserSessionDao cussdao;
+	
+	@Autowired
+	private CartDao cartdao;
+	
+	
 	@Override
 	public Customer saveCustomer(Customer customer) throws CustomerException {
 		Customer existingUserName = customerDao.findByUserName(customer.getUserName());
 
 		if (existingUserName != null)
 			throw new CustomerException("Username already exists " + customer.getUserName());
+		
+		Cart cart = new Cart();
+		cart.setProducts(new HashMap<Product, Integer>());
+		customer.setCart(cart);
+		cart.setCustomer(customer);
 
 		return customerDao.save(customer);
 	}
