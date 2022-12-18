@@ -57,7 +57,7 @@ ER-Diagram
 
 Swagger REST API:
 -------------------
-- Link http://localhost:8888/swagger-ui/
+- Link http://localhost:8088/swagger-ui/
 -------------------
 Images :
 ----------
