@@ -56,13 +56,16 @@ public class MyOrderController {
 	}
 
 	@GetMapping("/orders/{orderId}")
+
 	public ResponseEntity<MyOrder> getOrderByOrderIdHandler(@PathVariable("orderId") Integer orderId,@RequestParam String Key) throws OrderException, CustomerException, LoginException{
+
 
 		MyOrder savedOrder = orderServices.viewOrder(orderId, Key);
 
 		return new ResponseEntity<MyOrder>(savedOrder, HttpStatus.OK);
 
 	}
+
 
 //	@GetMapping("/orderByDate")
 //	public ResponseEntity<List<MyOrder>> getOrderByByDateHandler(@RequestParam LocalDate date,@RequestParam String key) throws OrderException, CustomerException, LoginException{
@@ -72,6 +75,7 @@ public class MyOrderController {
 //		return new ResponseEntity<List<MyOrder>>(savedOrder, HttpStatus.OK);
 //
 //	}
+
 	
 //	@GetMapping("/ordersByLocation")
 //	public ResponseEntity<List<MyOrder>> getOrderByByLocationHandler(@RequestParam String city,@RequestParam String key) throws OrderException, CustomerException, LoginException{
@@ -82,7 +86,9 @@ public class MyOrderController {
 //
 //	}
 	
+
 	@GetMapping("/ordersByCustomerId")
+  
 	public ResponseEntity<List<MyOrder>> getOrderByByCustomerIdHandler(@RequestParam Integer CustomerId,@RequestParam String key) throws OrderException, CustomerException, LoginException{
 
 		List<MyOrder> savedOrder = orderServices.viewAllOrdersByCustomerId(CustomerId, key);
