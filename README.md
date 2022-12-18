@@ -10,8 +10,6 @@ Project Type:
 -------------
 Group Project:
 - Rest API using Spring Boot and Mysql
-- Calling backend API’s from the Java-script
-- Deployment of the application on AWS
 
 Technologies:
 - Spring Boot
@@ -31,7 +29,7 @@ Technologies:
 
 
 ----------------------------
-##Online Shopping Application :
+Online Shopping Application :
 ----------------------------
 
 
@@ -63,29 +61,27 @@ Images :
 ----------
 
 - All Controllers:
+![p01](https://user-images.githubusercontent.com/87934736/208306737-0b1227e4-977e-412e-8449-5a4af39fe1cf.png)
 
-![image](https://drive.google.com/file/d/1m9hmdFj-MaoxLhab1G_Cum-WVNQ-Etdn/view?usp=sharing)
 
 - Address Controller:
+![1 address](https://user-images.githubusercontent.com/87934736/208306674-63fd5875-0ee0-4c3c-b966-a2e401008b02.png)
 
-![image (1)]()
 
 - Cart Controller:
-
-![image (2)]()
+![1 cart](https://user-images.githubusercontent.com/87934736/208306411-4445af0e-0276-48a5-abaf-177df0f2cfb0.png)
 
 - Customer Controller:
-
-![image (3)]()
+![1 customer](https://user-images.githubusercontent.com/87934736/208306435-e0adb261-62da-4a4c-a937-0670c4c935e8.png)
 
 - Login Controller:
+![1 login](https://user-images.githubusercontent.com/87934736/208306696-8e931d41-1dcd-4c31-9c66-ef70c79bf071.png)
 
-![image (4)]()
 
 - Order Controller:
-
-![image (5)]()
+![1 myOrder](https://user-images.githubusercontent.com/87934736/208306689-605a8b35-6c21-49ce-bef0-09781c632f89.png)
 
 - Product Controller:
+![1 product](https://user-images.githubusercontent.com/87934736/208306680-27de7058-776d-403f-bb8c-45e69c91e247.png)
 
-![image (6)]()
+------------------------
