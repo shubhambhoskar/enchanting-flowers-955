@@ -40,14 +40,7 @@ public class AddressServicesImpl implements AddressServices{
 			throw new LoginException("Invalid Key Entered");
 		}
 		Customer customer = customerService.findByCustomerLoginId(loggedInCustomer.getUserId());
-
-		Set<Address> res = customer.getAddress();
-
-		if (res.contains(address))
-			throw new AddressException("Address already exists");
-
-		customer.getAddress().add(address);
-
+		customer.setAddresses(address);
 		return addressDao.save(address);
 	}
 
@@ -86,9 +79,7 @@ public class AddressServicesImpl implements AddressServices{
 		
 		Customer customer = customerService.findByCustomerLoginId(loggedInCustomer.getUserId());
 		
-		Set<Address> res = customer.getAddress();
-		
-		res.remove(adr);
+		customer.setAddresses(null);
 
 		addressDao.deleteById(AddressId);
 

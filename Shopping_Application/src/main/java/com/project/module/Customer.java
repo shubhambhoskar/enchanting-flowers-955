@@ -58,9 +58,9 @@ public class Customer {
 	@Column(unique = true)
 	private String email;
 
+	@OneToOne(cascade = CascadeType.ALL)
 	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL)
-	private Set<Address> Address;
+	private Address addresses;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JsonIgnore

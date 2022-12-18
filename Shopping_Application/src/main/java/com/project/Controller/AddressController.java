@@ -29,7 +29,7 @@ public class AddressController {
 	private AddressServices addressServices;
 
 	@PostMapping("/address")
-	public ResponseEntity<Address> addReservation(@Valid @RequestBody Address address,@RequestParam String key) throws AddressException, CustomerException, LoginException{
+	public ResponseEntity<Address> addAddress(@Valid @RequestBody Address address,@RequestParam String key) throws AddressException, CustomerException, LoginException{
 
 		Address savedAddress = addressServices.addAddress(address, key);
 

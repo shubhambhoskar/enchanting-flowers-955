@@ -3,7 +3,6 @@ package com.project.Service;
 import java.util.List;
 
 import com.project.Exceptions.AdminException;
-import com.project.Exceptions.CustomerException;
 import com.project.Exceptions.LoginException;
 import com.project.Exceptions.ProductException;
 import com.project.module.Product;
