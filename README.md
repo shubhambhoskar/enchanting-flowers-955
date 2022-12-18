@@ -28,7 +28,6 @@ Technologies:
 | Shashi Suman     | fw18_0471  |	
 | Amit Singh       | fw19_0457  |	
 | Akash Yadav      | fw20_1095  |	
-|------------------|------------|	
 
 
 ----------------------------
